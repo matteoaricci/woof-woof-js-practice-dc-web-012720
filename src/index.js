@@ -39,11 +39,28 @@ function getDog(dog) {
             dogShow.append(dogImage, dogName)
             dogLocation.append(dogShow)        
         let gBB = document.createElement('button')
-            if ( dog.isGoodDog === true ) {
+            gBB.id = 'good-bad-button'
+        gBB.addEventListener('click', switchSides)
+
+
+        if ( dog.isGoodDog === true ) {
+            // gBB.className = "good"
             gBB.innerText = "Good Dog!"
             dogShow.append(gBB)
         } else {
+            // gBB.className = "bad"
             gBB.innerText = "Bad Dog!"
             dogShow.append(gBB)
         }
+}
+
+function switchSides(event) {
+    let dogStat = document.querySelector('button#good-bad-button')
+    if(dogStat.innerText === 'Good Dog!') {
+        dogStat.innerText = "Bad Dog!"
+        // dogStat.ClassName = 'bad'
+    } else {
+        dogStat.innerText = "Good Dog!"
+        // dogStat.ClassName = 'good'
+    }
 }
