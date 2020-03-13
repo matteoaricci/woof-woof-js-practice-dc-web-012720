@@ -38,8 +38,8 @@ function getDog(dog) {
             dogImage.src = dog.image
             dogShow.append(dogImage, dogName)
             dogLocation.append(dogShow)        
-            if ( dog.idGoodDog === 'false' ) {
-            let gBB = document.createElement('button')
+        let gBB = document.createElement('button')
+            if ( dog.isGoodDog === true ) {
             gBB.innerText = "Good Dog"
             dogShow.append(gBB)
         }
