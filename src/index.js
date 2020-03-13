@@ -11,6 +11,7 @@ function fetchDogs() {
 }
 
 function renderDogs(input) {
+    let dogObject = input;
     let spanBar = document.createElement('span')
         spanBar.innerText = input.name
         spanBar.addEventListener('click', clickDog)
@@ -20,6 +21,6 @@ function renderDogs(input) {
 
 }
 
-function clickDog() {
-    console.log("I've been clicked!")
+function clickDog(event) {
+    debugger;
 }
