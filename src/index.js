@@ -11,7 +11,6 @@ function fetchDogs() {
 }
 
 function renderDogs(input) {
-    let dogObject = input;
     let spanBar = document.createElement('span')
         spanBar.innerText = input.name
         spanBar.id = input.id
@@ -32,6 +31,7 @@ function getDog(dog) {
     let dogLocation = document.getElementById('dog-info')
     dogLocation.innerHTML = ''
     let dogShow = document.createElement('div')
+    dogShow.id = dog.id
         let dogName = document.createElement('h2')
             dogName.innerText = dog.name
         let dogImage = document.createElement('img')
@@ -55,12 +55,29 @@ function getDog(dog) {
 }
 
 function switchSides(event) {
+    let doggieId = event.currentTarget.parentElement.id
     let dogStat = document.querySelector('button#good-bad-button')
     if(dogStat.innerText === 'Good Dog!') {
         dogStat.innerText = "Bad Dog!"
+        postGoodBad(false, doggieId)
         // dogStat.ClassName = 'bad'
     } else {
         dogStat.innerText = "Good Dog!"
+        postGoodBad(true, doggieId)
         // dogStat.ClassName = 'good'
     }
+
+}
+function postGoodBad(stat, num) {
+
+    fetch(`http://localhost:3000/pups/${num}`, {
+    method: 'POST',
+    headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+        },
+        
+        body: JSON.stringify(stat)
+
+    })
 }
