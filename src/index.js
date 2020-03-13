@@ -40,7 +40,10 @@ function getDog(dog) {
             dogLocation.append(dogShow)        
         let gBB = document.createElement('button')
             if ( dog.isGoodDog === true ) {
-            gBB.innerText = "Good Dog"
+            gBB.innerText = "Good Dog!"
+            dogShow.append(gBB)
+        } else {
+            gBB.innerText = "Bad Dog!"
             dogShow.append(gBB)
         }
 }
